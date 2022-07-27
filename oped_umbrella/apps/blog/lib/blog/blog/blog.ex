@@ -15,10 +15,8 @@ defmodule Blog.Blog do
   @tags @posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
 
   # And finally export them
-  def all_posts, do: @posts
-  def all_tags, do: @tags
-
-  def recent_posts(num \\ 5), do: Enum.take(all_posts(), num)
+  def all_posts(), do: @posts
+  def all_tags(), do: @tags
 
   defmodule NotFoundError, do: defexception [:message, plug_status: 404]
 
